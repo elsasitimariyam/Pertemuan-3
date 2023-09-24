@@ -1,0 +1,69 @@
+import java.util.Scanner; #untuk memudahkan pengambilan input dari pengguna dalam program java
+
+class Kasir { #menampung isi dari program yang akan dijalankan
+  public static void main(String[] argumen) { #untuk menjalankan program java
+
+    boolean programBerjalan = true; #untuk menyimpan nilai kebenaran (true,false) dari suatu ekspresi logika
+    int totalMakanan1 = 0; #untuk menyimpan angka/bilangan bulat
+    int totalMakanan2 = 0; #untuk menyimpan angka/bilangan bulat
+    int totalMakanan3 = 0; #untuk menyimpan angka/bilangan bulat
+    int totalMakanan4 = 0; #untuk menyimpan angka/bilangan bulat
+    int totalKeuntungan = 0; #untuk menyimpan angka/bilangan bulat
+    
+    Scanner inputPengguna = new Scanner(System.in); #untuk menginput data/nilai saat  setelah program dijalankan
+    int nomorMakananDibeli; #untuk menyimpan angka/bilangan bulat
+    int kuantitasMakananDibeli; #untuk menyimpan angka/bilangan bulat
+    String kataPembuka; #tipe data yang berisi karakter, bisa berupa teks, huruf atau simbol lainnya
+
+    while(programBerjalan) { #untuk mengulang perintah
+      kataPembuka = "========================================================";
+      kataPembuka += "\nSelamat datang di Toko Elsa, mau beli makanan apa ?"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n1. Seblak (Rp.10000) - " + totalMakanan1 + " makanan terjual"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n2. Bakso (Rp.12000) - " + totalMakanan2 + " makanan terjual"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n3. Pangyam (Rp.15000) - " + totalMakanan3 + " makanan terjual"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n4. Batagor (Rp.5000) - " + totalMakanan4 + " makanan terjual"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n9. Program ini kurang bermanfaat, saya memilih keluar"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n\nTotal keuntungan toko saat ini Rp " + totalKeuntungan + ",,, alhamdulillah"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n========================================================"; #\n untuk insert tab/memberi jarak dalam teks
+      kataPembuka += "\n\nPilih nomor makanan (1 / 2 / 3 / 4):"; #\n untuk insert tab/memberi jarak dalam teks
+
+      System.out.println(kataPembuka); #mencetak data, setelah data tersebut dicetak diikuti dengan perpindahan baris baru.
+      nomorMakananDibeli = inputPengguna.nextInt(); #proses pembacaan data
+
+      if (nomorMakananDibeli == 1 || #if digunakan jika kita hanya memiliki satu pernyaatan yang akan dijalankan dengan syarat tertentu.
+nomorMakananDibeli == 2 || nomorMakananDibeli == 3 || nomorMakananDibeli == 4) {
+
+        System.out.println("Makanan nomor " + nomorMakananDibeli + " dipilih\nMau berapa porsi ?"); #mencetak data, setelah data tersebut dicetak diikuti dengan perpindahan baris baru.
+        kuantitasMakananDibeli = #mengetahui berapa banyak makanan yang harus dibeli
+inputPengguna.nextInt(); #proses pembacaan data
+
+        System.out.println("Makanan nomor " + nomorMakananDibeli + " dibeli sejumlah " + kuantitasMakananDibeli + " porsi"); #mencetak data, setelah data tersebut dicetak diikuti dengan perpindahan baris baru.
+
+        switch(nomorMakananDibeli) { #membandingkan isi sebuah variabel dengan beberapa nilai.
+          case 1: 
+            totalMakanan1 += kuantitasMakananDibeli;
+            totalKeuntungan += (kuantitasMakananDibeli * 10000);
+            break; #perintah khusus yang dipakai untuk memaksa sebuah perulangan berhenti sebelum waktunya. 
+          case 2:
+            totalMakanan2 += kuantitasMakananDibeli;
+            totalKeuntungan += (kuantitasMakananDibeli * 12000);
+            break; #perintah khusus yang dipakai untuk memaksa sebuah perulangan berhenti sebelum waktunya. 
+          case 3:
+            totalMakanan3 += kuantitasMakananDibeli;
+            totalKeuntungan += (kuantitasMakananDibeli * 15000);
+            break; #perintah khusus yang dipakai untuk memaksa sebuah perulangan berhenti sebelum waktunya. 
+          case 4:
+            totalMakanan4 += kuantitasMakananDibeli;
+            totalKeuntungan += (kuantitasMakananDibeli * 5000);
+            break; #perintah khusus yang dipakai untuk memaksa sebuah perulangan berhenti sebelum waktunya. 
+        }
+
+      } else if (nomorMakananDibeli == 9) {
+        programBerjalan = false; #pilihan terakhir yang akan dijalankan jika semua pilihan tidak memiliki nilai benar (true) pada kondisi yang ada.
+        System.out.println("Sayang sekali, kamu melewatkan makanan rahasia"); #mencetak data, setelah data tersebut dicetak diikuti dengan perpindahan baris baru.
+      } else { #jika pernyataan tidak sesuai dengan kondisi
+        System.out.println("Apa yang kamu pilih tidak layak untuk dibeli"); #mencetak data, setelah data tersebut dicetak diikuti dengan perpindahan baris baru.
+      }
+    }
+  }
+}
